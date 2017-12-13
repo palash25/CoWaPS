@@ -13,6 +13,19 @@ def fetch(url):
     soup = BeautifulSoup(r.content, 'html.parser')
     user_info = soup.find_all('div', attrs={'class': 'stat'})
     counter = 0
+    
+    if not user_info:
+        print "Username not found!"
+
+        while 1:
+            ch = raw_input("Do you want to try again? (y/n): ")
+            if ch in ['y', 'Y']:
+                main()
+                return
+            elif ch in ['n', 'N']:
+                return
+            else:
+                print "Invalid Choice!"
 
     for info in user_info:
         counter += 1
