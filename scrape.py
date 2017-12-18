@@ -3,8 +3,8 @@ from bs4 import BeautifulSoup
 
 
 def url_builder():
-    uname = raw_input("Enter user name: ")
-    url = 'https://www.codewars.com/users/' + uname
+    username = input("Enter user name: ")
+    url = 'https://www.codewars.com/users/' + username
     return url
 
 
@@ -15,17 +15,8 @@ def fetch(url):
     counter = 0
     
     if not user_info:
-        print "Username not found!"
-
-        while 1:
-            ch = raw_input("Do you want to try again? (y/n): ")
-            if ch in ['y', 'Y']:
-                main()
-                return
-            elif ch in ['n', 'N']:
-                return
-            else:
-                print "Invalid Choice!"
+        print("Username does not exist, please try again.")
+        return
 
     for info in user_info:
         counter += 1
