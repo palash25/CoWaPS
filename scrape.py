@@ -15,7 +15,7 @@ def fetch(url):
     counter = 0
     
     if not user_info:
-        print("Username does not exist, please try again.")
+        print("Username does not exist, please try again. ")
         return
 
     for info in user_info:
