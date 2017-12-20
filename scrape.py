@@ -1,6 +1,7 @@
 import sys
 import requests
 from bs4 import BeautifulSoup
+import csv
 
 
 def url_builder(username):
@@ -8,7 +9,24 @@ def url_builder(username):
     return url
 
 
+def store(data):
+    '''
+    This Function stores the
+    data in a csv file
+    '''
+    csv.register_dialect('Dialect', delimiter=chr(9), quoting=csv.QUOTE_NONE)
+    File = open("user_info.csv", "a")
+    with File:
+            writer = csv.writer(File, dialect='Dialect')
+            writer.writerow(data)
+            File.close()
+
+
 def fetch(url):
+    '''
+    This function fetches the
+    info about the user
+    '''
     counter = 0
     r = requests.get(url)
 
@@ -26,6 +44,8 @@ def fetch(url):
             continue
 
         print(info.contents[0].string, " ", info.contents[1].string)
+        data = [info.contents[0].string, info.contents[1].string]
+        store(data)
 
         if(counter == 16):
             break
