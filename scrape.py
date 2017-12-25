@@ -2,6 +2,7 @@ import sys
 import requests
 from bs4 import BeautifulSoup
 import csv
+from texttable import Texttable
 
 
 def url_builder(username):
@@ -37,18 +38,26 @@ def fetch(url):
     soup = BeautifulSoup(r.content, 'html.parser')
     user_info = soup.find_all('div', attrs={'class': 'stat'})
 
+    t = Texttable()
+    info_list = []
+    data = ['Attributes', 'Values']
+    info_list.append(data)
+
     for info in user_info:
         counter += 1
 
         if(counter >= 5 and counter <= 7):
             continue
 
-        print(info.contents[0].string, " ", info.contents[1].string)
         data = [info.contents[0].string, info.contents[1].string]
+        info_list.append(data)
         store(data)
 
         if(counter == 16):
             break
+
+    t.add_rows(info_list)
+    print(t.draw())
 
 
 def main(argv):
