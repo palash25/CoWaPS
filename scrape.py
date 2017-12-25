@@ -38,10 +38,10 @@ def fetch(url):
     soup = BeautifulSoup(r.content, 'html.parser')
     user_info = soup.find_all('div', attrs={'class': 'stat'})
 
-    t = Texttable()
-    info_list = []
+    table = Texttable()
+    profile_stats = []
     data = ['Attributes', 'Values']
-    info_list.append(data)
+    profile_stats.append(data)
 
     for info in user_info:
         counter += 1
@@ -50,14 +50,14 @@ def fetch(url):
             continue
 
         data = [info.contents[0].string, info.contents[1].string]
-        info_list.append(data)
+        profile_stats.append(data)
         store(data)
 
         if(counter == 16):
             break
 
-    t.add_rows(info_list)
-    print(t.draw())
+    table.add_rows(profile_stats)
+    print(table.draw())
 
 
 def main(argv):
