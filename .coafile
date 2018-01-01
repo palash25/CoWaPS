@@ -1,5 +1,5 @@
 [all]
-files = *.py, *.csv
+files = *.py
 use_spaces = True
 max_line_length = 79
 ignore = assets/
@@ -8,12 +8,7 @@ ignore = assets/
 files = scrape.py
 bears = PEP8Bear
 
-
 default_actions = PEP8Bear: ApplyPatchAction
-
-[CSV]
-files = user_info.csv
-bears = CSVLintBear
 
 [commit]
 bears = GitCommitBear
