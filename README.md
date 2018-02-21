@@ -1,3 +1,7 @@
+<h1 align="center">
+  <img src="https://raw.githubusercontent.com/palash25/CoWaPS/master/assets/logo.png" alt="Logo">
+</h1>
+
 # Code Wars Profile Scraper
 
 This is a web scraper written in python to scrape the profile of a user on code wars(a competitive programming website). Although the CodeWars API is publicly available I made this scraper just for the love of scraping.
@@ -50,4 +54,4 @@ Now, to install the required packages follow the instructions as mentioned under
 **Note:**
 1. It is recommended to run `sudo apt-get update` before running the above commands.
 2. If you don't have python3/pip3 installed, replace `python3`/`pip3` with `python`/`pip` and run the command.
-3. Still confused how to install? Google your questions. :wink:
+3. If you like what you see give it a :star: .
